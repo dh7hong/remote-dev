@@ -34,24 +34,25 @@ export default function JobItemContent() {
           <div className="job-info__right">
             <h2 className="second-heading">{jobItem.title}</h2>
             <p className="job-info__company">{jobItem.company}</p>
-            <p className="job-info__description">{jobItem.description}</p>
-            <div className="job-info__extras">
-              <p className="job-info__extra">
-                <i className="fa-solid fa-clock job-info__extra-icon"></i>
-                {jobItem.duration}
-              </p>
-              <p className="job-info__extra">
-                <i className="fa-solid fa-money-bill job-info__extra-icon"></i>
-                {jobItem.salary}
-              </p>
-              <p className="job-info__extra">
-                <i className="fa-solid fa-location-dot job-info__extra-icon"></i>{" "}
-                {jobItem.location}
-              </p>
-            </div>
           </div>
         </section>
-
+        <section className="job-info__summary">
+          <p className="job-info__description">{jobItem.description}</p>
+          <div className="job-info__extras">
+            <p className="job-info__extra">
+              <i className="fa-solid fa-clock job-info__extra-icon"></i>
+              {jobItem.duration}
+            </p>
+            <p className="job-info__extra">
+              <i className="fa-solid fa-money-bill job-info__extra-icon"></i>
+              {jobItem.salary}
+            </p>
+            <p className="job-info__extra">
+              <i className="fa-solid fa-location-dot job-info__extra-icon"></i>{" "}
+              {jobItem.location}
+            </p>
+          </div>
+        </section>
         <div className="job-details__other">
           <section className="qualifications">
             <div className="qualifications__left">
@@ -86,14 +87,13 @@ export default function JobItemContent() {
               })}
             </ul>
           </section>
+          <footer className="job-details__footer">
+            <p className="job-details__footer-text">
+              If possible, please reference that you found the job on{" "}
+              <span className="u-bold">rmtDev</span>, we would really appreciate it!
+            </p>
+          </footer>
         </div>
-
-        <footer className="job-details__footer">
-          <p className="job-details__footer-text">
-            If possible, please reference that you found the job on{" "}
-            <span className="u-bold">rmtDev</span>, we would really appreciate it!
-          </p>
-        </footer>
       </div>
     </section>
   );

@@ -222,6 +222,18 @@ body::-webkit-scrollbar {
   transform: translateY(-50%);
 }
 
+.bookmarks-btn::after {
+  content: "";
+  height: 15px;
+  width: 2px;
+  display: block;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.3);
+  left: 100px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 .bookmarks-btn--active,
 .bookmarks-btn:hover,
 .bookmarks-btn:focus {
@@ -260,7 +272,6 @@ body::-webkit-scrollbar {
   color: #7a8083;
   text-align: center;
   margin: auto;
-  opacity: 0.6;
 }
 
 .job-list::-webkit-scrollbar {
@@ -293,8 +304,8 @@ body::-webkit-scrollbar {
   /* opacity: 0; */
   background-color: #fff;
   min-height: 76px;
-  min-width: 340px;
-  width: 340px;
+  min-width: 280px;
+  width: 280px;
   border-radius: 4px;
   overflow: hidden;
   z-index: 10;
@@ -556,6 +567,7 @@ body::-webkit-scrollbar {
   background-color: #fff;
   border-radius: 8px;
   display: flex;
+  overflow: auto;
   border-top-right-radius: 9px;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.07);
   margin-top: 40px;
@@ -564,7 +576,7 @@ body::-webkit-scrollbar {
 
 /* SIDEBAR */
 .sidebar {
-  width: 340px;
+  flex: 1;
   display: flex;
   flex-direction: column;
 }
@@ -687,11 +699,13 @@ body::-webkit-scrollbar {
 
 /* JOB DETAILS */
 .job-details {
-  flex: 1;
+  flex: 2;
   background-color: #eff2f5;
   position: relative;
   border-top-right-radius: 12px;
   border-bottom-right-radius: 8px;
+  flex-grow: 1;
+  overflow: auto;
 }
 
 .job-details__start-view {
@@ -719,9 +733,9 @@ body::-webkit-scrollbar {
   text-align: center;
 }
 
-.job-details > div {
-  height: 100%;
-}
+/* .job-details > div {
+  height: 100vh;
+} */
 
 .job-details > div > img {
   width: 100%;
@@ -735,12 +749,16 @@ body::-webkit-scrollbar {
 }
 
 .job-details__other {
+  /* display:flex;
+  flex-direction:column;
+   */
 }
 
 .job-details__footer {
   margin-left: 42px;
   margin-right: 42px;
-  margin-top: 33px;
+
+  margin-bottom: 20px;
   padding-top: 13px;
   border-top: 1px solid #dce2e8;
 }
@@ -785,7 +803,7 @@ body::-webkit-scrollbar {
 .job-info {
   position: relative;
   z-index: 1;
-  margin-bottom: 40px;
+  margin-bottom: 5px;
   display: flex;
   column-gap: 16px;
   padding-top: 120px;
@@ -858,15 +876,25 @@ body::-webkit-scrollbar {
 }
 
 .job-info__company {
-  font-size: 14px;
+  font-size: 12px;
   font-style: italic;
   color: rgba(255, 255, 255, 0.8);
 }
 
+.job-info__summary {
+  display: flex;
+  flex-direction: column;
+  padding-left: 42px;
+  padding-right: 42px;
+  gap: 10px;
+}
+
+
 .job-info__description {
   font-size: 14px;
-  margin-top: 18px;
-  margin-bottom: 12px;
+  
+  word-wrap: break-word;
+  margin-right: 12px;
   line-height: 1.4;
 }
 
@@ -900,6 +928,7 @@ body::-webkit-scrollbar {
   display: flex;
   padding-left: 42px;
   padding-right: 42px;
+  margin-top: 30px;
   margin-bottom: 30px;
 }
 
@@ -933,6 +962,7 @@ body::-webkit-scrollbar {
   display: flex;
   padding-left: 42px;
   padding-right: 42px;
+  margin-bottom: 10px;
 }
 
 .reviews__sub-text {
@@ -978,6 +1008,7 @@ body::-webkit-scrollbar {
   padding: 0 12px;
   margin: 0 auto;
   margin-top: 15px;
+  margin-bottom: 15px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1036,7 +1067,7 @@ body::-webkit-scrollbar {
 .spinner--job-details {
   left: 50%;
   top: 40%;
-  width: 105px;
+  width: 109px;
   height: 105px;
   border-top: 6px solid #d5d9db;
   border-right: 6px solid #d5d9db;
@@ -1103,6 +1134,7 @@ body::-webkit-scrollbar {
 
 @media (max-width: 1179px) {
   .job-list--bookmarks {
+    width: 300px;
     right: 0;
   }
 }
@@ -1120,16 +1152,58 @@ body::-webkit-scrollbar {
   }
 
   .container {
-    flex-direction: row;
+    flex-direction: column;
     height: initial;
     width: 100%;
     max-width: 800px;
     border-radius: 8px;
-    overflow: hidden;
+    overflow: show;
+    word-wrap: break-word;
+  }
+
+  .second-heading {
+    font-size: 14px;
   }
 
   .search-results {
     width: 100%;
+  }
+
+  .job-info__description {
+    padding-top: 10px;
+    width: 100%;
+    font-size: 14px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+
+  }
+
+  .job-info__extras {
+    flex-direction: column;
+    
+    column-gap: 0;
+    row-gap: 10px;
+  }
+
+  .qualifications {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+
+  .qualifications__left {
+    padding: 20px 0px;
+  }
+
+  .reviews {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+
+  .reviews__list {
+    padding: 20px 0px;
+    overflow: scroll;
   }
 
   .footer {

@@ -12,6 +12,8 @@ import ResultsCount from "./ResultsCount";
 import SortingControls from "./SortingControls";
 import { Toaster } from "react-hot-toast";
 import JobListSearch from "./JobListSearch";
+import JobDetailsContainer from "./JobDetailsContainer";
+import OpenJobDetails from "./OpenJobDetails";
 
 function App() {
   return (
@@ -30,12 +32,14 @@ function App() {
           <SidebarTop>
             <ResultsCount />
             <SortingControls />
+            <OpenJobDetails />
           </SidebarTop>
           <JobListSearch />
           {/* JobListSearch is a wrapper component for JobList */}
           <PaginationControls />
         </Sidebar>
-        <JobItemContent />
+        <JobDetailsContainer />
+        {/* <JobItemContent /> */}
       </Container>
       <Footer />
 

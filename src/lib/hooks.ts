@@ -7,6 +7,7 @@ import { BookmarksContext } from "../contexts/BookmarksContextProvider";
 import { ActiveIdContext } from "../contexts/ActiveIdContextProvider";
 import { SearchTextContext } from "../contexts/SearchTextContextProvider";
 import { JobItemsContext } from "../contexts/JobItemsContextProvider";
+import { JobDetailsVisibilityContext } from "../contexts/JobDetailsVisibilityContextProvider";
 
 type JobItemApiResponse = {
   public: boolean;
@@ -210,6 +211,16 @@ export function useJobItemsContext() {
   if (!context) {
     throw new Error(
       "useJobItemsContext must be used within a JobItemsContextProvider"
+    );
+  }
+  return context;
+}
+
+export function useJobDetailsVisibilityContext() {
+  const context = useContext(JobDetailsVisibilityContext);
+  if (!context) {
+    throw new Error(
+      "useJobDetailsVisibilityContext must be used within a JobItemsContextProvider"
     );
   }
   return context;
