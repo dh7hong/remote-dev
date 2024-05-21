@@ -5,7 +5,6 @@ import Header, { HeaderTop } from "./Header";
 import Logo from "./Logo";
 import BookmarksButton from "./BookmarksButton";
 import SearchForm from "./SearchForm";
-import JobItemContent from "./JobItemContent";
 import Sidebar, { SidebarTop } from "./Sidebar";
 import PaginationControls from "./PaginationControls";
 import ResultsCount from "./ResultsCount";
